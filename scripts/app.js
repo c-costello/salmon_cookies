@@ -19,16 +19,44 @@ var firstAndPike = {
       var arrayCookiesPerHourFn = this.cookiesPerHourFn();
       trialArray.push(hour[i] + ': ' + arrayCookiesPerHourFn + ' Cookies');
       console.log('cookiesPerHourFn', arrayCookiesPerHourFn);
-    
       totalCookiesSold = totalCookiesSold + parseInt(arrayCookiesPerHourFn);
       console.log('totalCookiesSold', totalCookiesSold);
     }
-    trialArray.push('Total Cookies :' + totalCookiesSold);
-    console.log(trialArray);
+    trialArray.push('Total Cookies: ' + totalCookiesSold);
+    console.log('trialArray', trialArray);
     return [trialArray];
   },
 };
 
-firstAndPike.cookiesPerHourFn();
-firstAndPike.arrayFn();
+var seaTac = {
+  name: 'SeaTac Airport',
+  minCustomers: 3,
+  maxCustomers: 24,
+  avgCookiePerCustomer: 1.2,
+  cookiesPerHourFn: function() {
+    var customersPerHour = Math.round((Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers));
+    console.log('customersPerHour', this.customersPerHour);
+    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
+    console.log('cookiesPerHour', cookiesPerHour);
+    return [cookiesPerHour];
+  },
+  arrayFn: function() {
+    var trialArray = [];
+    var totalCookiesSold = 0;
+    for (var j = 0; j < hour.length; j++) {
+      var arrayCookiesPerHourFn = this.cookiesPerHourFn();
+      trialArray.push(hour[j] + ': ' + arrayCookiesPerHourFn + ' Cookies');
+      console.log('arrayCookiesPerHour', arrayCookiesPerHourFn);
+      totalCookiesSold = totalCookiesSold + parseInt(arrayCookiesPerHourFn);
+      console.log('totalCookiesSold', totalCookiesSold);
+    }
+    trialArray.push('Total Cookies: ' + totalCookiesSold);
+    console.log('trialArray', trialArray);
+    return [trialArray];
+  },
+};
 
+// firstAndPike.cookiesPerHourFn();
+// firstAndPike.arrayFn();
+seaTac.cookiesPerHourFn();
+seaTac.arrayFn();
