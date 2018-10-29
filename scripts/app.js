@@ -43,7 +43,7 @@ var seaTac = {
   arrayFn: function() {
     var trialArray = [];
     var totalCookiesSold = 0;
-    for (var j = 0; j < hour.length; j++) {
+    for (var i = 0; i < hour.length; i++) {
       var arrayCookiesPerHourFn = this.cookiesPerHourFn();
       trialArray.push(hour[j] + ': ' + arrayCookiesPerHourFn + ' Cookies');
       console.log('arrayCookiesPerHour', arrayCookiesPerHourFn);
@@ -71,7 +71,7 @@ var seattleCenter = {
   arrayFn: function() {
     var trialArray = [];
     var totalCookiesSold = 0;
-    for (var k =0; k < hour.length; k++) {
+    for (var i =0; i < hour.length; i++) {
       var arrayCookiesPerHourFn = this.cookiesPerHourFn();
       trialArray.push(hour[k] + ': ' + arrayCookiesPerHourFn + ' Cookies');
       console.log('arrayCookiesPerHour', arrayCookiesPerHourFn);
@@ -84,6 +84,24 @@ var seattleCenter = {
   },
 };
 
+var capitolHill = {
+  name: 'Capitol Hill',
+  minCustomers: 20,
+  maxCustomers: 38,
+  avgCookiePerCustomer: 2.3,
+  cookiesPerHourFn: function (){
+    var customersPerHour = Math.round((Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers));
+    console.log('customersPerHour', customersPerHour);
+    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
+    console.log('cookiesPerHour', cookiesPerHour);
+    return[cookiesPerHour];
+  },
+  arrayFn: function() {
+    var trialArray = [];
+    var totalCookiesSold = 0;
+    for (var )
+  }
+};
 
 // firstAndPike.cookiesPerHourFn();
 // firstAndPike.arrayFn();
