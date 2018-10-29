@@ -7,8 +7,8 @@ var firstAndPike = {
   avgCookiePerCustomer: 6.3,
   cookiesPerHourFn : function() {
     var customersPerHour =  Math.round((Math.random()*(this.maxCustomers - this.minCustomers) + this.minCustomers));
-    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
     console.log('customersPerHour', customersPerHour);
+    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
     console.log('cookiesPerHour', cookiesPerHour);
     return [cookiesPerHour];
   },
@@ -16,13 +16,14 @@ var firstAndPike = {
     var trialArray = [];
     var totalCookiesSold = 0;
     for (var i = 0; i < hour.length; i++) {
-      trialArray.push(hour[i] + ': ' + this.cookiesPerHourFn() + ' Cookies');
-      console.log('cookiesPerHourFn', this.cookiesPerHourFn());
-      console.log(trialArray);
-      totalCookiesSold = totalCookiesSold + this.cookiesPerHourFn();
+      var arrayCookiesPerHourFn = this.cookiesPerHourFn();
+      trialArray.push(hour[i] + ': ' + arrayCookiesPerHourFn + ' Cookies');
+      console.log('cookiesPerHourFn', arrayCookiesPerHourFn);
+    
+      totalCookiesSold = totalCookiesSold + parseInt(arrayCookiesPerHourFn);
       console.log('totalCookiesSold', totalCookiesSold);
     }
-    trialArray = trialArray.push(hour[4] + ': ' + totalCookiesSold + ' Cookies');
+    trialArray.push('Total Cookies :' + totalCookiesSold);
     console.log(trialArray);
     return [trialArray];
   },
