@@ -5,15 +5,15 @@ var firstAndPike = {
   minCustomers: 23,
   maxCustomers: 65,
   avgCookiePerCustomer: 6.3,
-  totalCookies: function() {
-    var customersPerHour = Math.floor((Math.random()*(this.maxCustomers - this.minCustomers) + this.minCustomers));
-    console.log('customersPerHour',customersPerHour);
-    var cookiesPerHour = Math.floor(customersPerHour * this.avgCookiePerCustomer);
-    console.log('cookiesPerHour',cookiesPerHour);
-    return [cookiesPerHour];
-  },
-  cookies6am: hour[0] + this.totalCookies(),
+  testFn : function() {
+    var customersPerHour =  Math.round((Math.random()*(this.maxCustomers - this.minCustomers) + this.minCustomers));
+    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
+    var cookies6am = hour[0] + ': ' + cookiesPerHour + ' cookies';
+    console.log('customersPerHour', customersPerHour);
+    console.log('cookiesPerHour', cookiesPerHour);
+    console.log('cookies6am', cookies6am);
+  }
 };
 
-firstAndPike.totalCookies();
-console.log(firstAndPike.cookies6am);
+firstAndPike.testFn();
+
