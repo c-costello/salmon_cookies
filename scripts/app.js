@@ -56,7 +56,38 @@ var seaTac = {
   },
 };
 
+var seattleCenter = {
+  name: 'Seattle Center',
+  minCustomers: 11,
+  maxCustomers: 38,
+  avgCookiePerCustomer:  3.7,
+  cookiesPerHourFn: function(){
+    var customersPerHour = Math.round((Math.random() * (this.maxCustomers - this.minCustomers) + this.minCustomers));
+    console.log('customersPerHour', this.customersPerHour);
+    var cookiesPerHour = Math.round(customersPerHour * this.avgCookiePerCustomer);
+    console.log('cookiesPerHour', cookiesPerHour);
+    return [cookiesPerHour];
+  },
+  arrayFn: function() {
+    var trialArray = [];
+    var totalCookiesSold = 0;
+    for (var k =0; k < hour.length; k++) {
+      var arrayCookiesPerHourFn = this.cookiesPerHourFn();
+      trialArray.push(hour[k] + ': ' + arrayCookiesPerHourFn + ' Cookies');
+      console.log('arrayCookiesPerHour', arrayCookiesPerHourFn);
+      totalCookiesSold = totalCookiesSold + parseInt(arrayCookiesPerHourFn);
+      console.log('totalCookiesSold', totalCookiesSold);
+    }
+    trialArray.push('Total Cookies: ' + totalCookiesSold);
+    console.log('trialArray', trialArray);
+    return [trialArray];
+  },
+};
+
+
 // firstAndPike.cookiesPerHourFn();
 // firstAndPike.arrayFn();
-seaTac.cookiesPerHourFn();
-seaTac.arrayFn();
+// seaTac.cookiesPerHourFn();
+// // seaTac.arrayFn();
+// seattleCenter.cookiesPerHourFn();
+// seattleCenter.arrayFn();
