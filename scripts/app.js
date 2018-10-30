@@ -36,6 +36,7 @@ CookieStore.prototype.getCookeisPerHour = function () {
   console.log(this.cookiesPerHourArr);
 };
 
+
 CookieStore.prototype.render = function() {
   this.getCookeisPerHour();
   var tbodyEl = document.getElementById('tbl-body');
@@ -48,7 +49,7 @@ CookieStore.prototype.render = function() {
   trEl.appendChild(thEl);
   //For loops begin
 
-  
+
   for (var i = 0; i < this.hoursOpen.length; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesPerHourArr[i];
@@ -58,7 +59,7 @@ CookieStore.prototype.render = function() {
   tdTotalEl.textContent = this.dailyTotal;
   trEl.appendChild(tdTotalEl);
   //for loops end
-  
+
   tbodyEl.appendChild(trEl);
   tdTotalEl.id = 'tblTotal';
 };
@@ -69,14 +70,43 @@ function createTable() {
   var theadEl = document.createElement('thead');
   var tbodyEl = document.createElement('tbody');
   var tfootEl = document.createElement('tfoot');
-  
+
   var tr2el = document.createElement('tr');
-  for (var j = 0; j < hoursOpen.length; j++) {
+  for (var i = 0; i < hoursOpen.length; i++) {
     var th2el = document.createElement('th');
-    th2el.textContent = hoursOpen[j];
+    th2el.textContent = hoursOpen[i];
     tr2el.appendChild(th2el);
     theadEl.appendChild(tr2el);
   }
+  
+  // function footer() {
+  //   var hourNumber = 0;
+  //   var totalArr = ['',];
+  //   var totalTotal = 0;
+  
+  //   while(hourNumber < 15) {
+  //     var eachStoreTotal = 0;
+  //     for (var i = 0; i < 5; i++){
+  //       eachStoreTotal += cookieStore[i].cookiesPerHourArr[hourNumber];
+  //     }
+  //     totalArr.push(eachStoreTotal);
+  //     eachStoreTotal = 0;
+  //     hourNumber++;
+  //   }
+  //   for (var k = 0; k < 5; k++){
+  //     totalTotal += cookieStore[k].dailyTotal;
+  //   }
+  //   totalArr.push(totalTotal);
+  //   console.log(totalArr);
+  // }
+  // footer();
+  // var tr3el = document.createElement('tr');
+  // for (var k = 0; k < totalArr; k++){
+  //   var tf3el = document.createElement('tf');
+  //   tf3el.textContent = totalArr[k];
+  //   tr3el.appendChild(th2el);
+  //   tfootEl.appendChild(tr2el);
+  // }
 
   mainEl.appendChild(tblEl);
   tblEl.appendChild(theadEl);
@@ -88,8 +118,6 @@ function createTable() {
   tbodyEl.id = 'tbl-body';
   tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
-  
-
 
 }
 
@@ -100,3 +128,5 @@ new CookieStore('SeaTac Airport', 3, 24, 1.2);
 new CookieStore('Seattle Center', 11, 38, 3.7);
 new CookieStore('Capitol Hill', 20, 38, 2.3);
 new CookieStore('Alki', 2, 16, 4.6);
+
+
