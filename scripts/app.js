@@ -40,7 +40,7 @@ var pikeAndFirst = {
     }
     var totalEl = document.createElement('li');
     totalEl.textContent = `Total: ${this.dailyTotal}`;
-    ulEl.appendChild(liEl);
+    ulEl.appendChild(totalEl);
 
     containerEL.appendChild(ulEl);
     mainEl.appendChild(containerEL);
@@ -90,7 +90,7 @@ var seaTac = {
     }
     var totalEl = document.createElement('li');
     totalEl.textContent = `Total: ${this.dailyTotal}`;
-    ulEl.appendChild(liEl);
+    ulEl.appendChild(totalEl);
 
     containerEL.appendChild(ulEl);
     mainEl.appendChild(containerEL);
@@ -140,7 +140,7 @@ var seattleCenter = {
     }
     var totalEl = document.createElement('li');
     totalEl.textContent = `Total: ${this.dailyTotal}`;
-    ulEl.appendChild(liEl);
+    ulEl.appendChild(totalEl);
 
     containerEL.appendChild(ulEl);
     mainEl.appendChild(containerEL);
@@ -190,7 +190,7 @@ var capHill = {
     }
     var totalEl = document.createElement('li');
     totalEl.textContent = `Total: ${this.dailyTotal}`;
-    ulEl.appendChild(liEl);
+    ulEl.appendChild(totalEl);
 
     containerEL.appendChild(ulEl);
     mainEl.appendChild(containerEL);
@@ -241,7 +241,7 @@ var alki = {
     }
     var totalEl = document.createElement('li');
     totalEl.textContent = `Total: ${this.dailyTotal}`;
-    ulEl.appendChild(liEl);
+    ulEl.appendChild(totalEl);
 
     containerEL.appendChild(ulEl);
     mainEl.appendChild(containerEL);
