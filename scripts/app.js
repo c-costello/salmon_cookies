@@ -65,7 +65,25 @@ var seaTac = {
     }
     trialArray.push('Total Cookies: ' + totalCookiesSold);
     console.log('trialArray', trialArray);
-    return [trialArray];
+    return [trialArray[0], trialArray[1], trialArray[2], trialArray[4], trialArray[5], trialArray[6], trialArray[7], trialArray[8], trialArray[9], trialArray[10], trialArray[11], trialArray[12], trialArray[13], trialArray[14], trialArray[15]];
+  },
+
+  render () {
+    var container = document.createElement('section');
+    var nameEl = document.createElement('h3');
+    nameEl.textContent = this.name;
+    container.appendChild(nameEl);
+
+    for (var i = 0; i < this.arrayFn().length; i++){
+      var listEl = document.createElement('li');
+      listEl.textContent = this.arrayFn()[i];
+      container.appendChild(listEl);
+    }
+
+
+    console.log('container', container);
+    var mainEl = document.getElementById('main-content');
+    mainEl.appendChild(container);
   },
 };
 
@@ -93,7 +111,25 @@ var seattleCenter = {
     }
     trialArray.push('Total Cookies: ' + totalCookiesSold);
     console.log('trialArray', trialArray);
-    return [trialArray];
+    return [trialArray[0], trialArray[1], trialArray[2], trialArray[4], trialArray[5], trialArray[6], trialArray[7], trialArray[8], trialArray[9], trialArray[10], trialArray[11], trialArray[12], trialArray[13], trialArray[14], trialArray[15]];
+  },
+
+  render () {
+    var container = document.createElement('section');
+    var nameEl = document.createElement('h3');
+    nameEl.textContent = this.name;
+    container.appendChild(nameEl);
+
+    for (var i = 0; i < this.arrayFn().length; i++){
+      var listEl = document.createElement('li');
+      listEl.textContent = this.arrayFn()[i];
+      container.appendChild(listEl);
+    }
+
+
+    console.log('container', container);
+    var mainEl = document.getElementById('main-content');
+    mainEl.appendChild(container);
   },
 
 };
@@ -122,7 +158,25 @@ var capitolHill = {
     }
     trialArray.push('Total Cookies: ' + totalCookiesSold);
     console.log('trialArray', trialArray);
-    return [trialArray];
+    return [trialArray[0], trialArray[1], trialArray[2], trialArray[4], trialArray[5], trialArray[6], trialArray[7], trialArray[8], trialArray[9], trialArray[10], trialArray[11], trialArray[12], trialArray[13], trialArray[14], trialArray[15]];
+  },
+
+  render () {
+    var container = document.createElement('section');
+    var nameEl = document.createElement('h3');
+    nameEl.textContent = this.name;
+    container.appendChild(nameEl);
+
+    for (var i = 0; i < this.arrayFn().length; i++){
+      var listEl = document.createElement('li');
+      listEl.textContent = this.arrayFn()[i];
+      container.appendChild(listEl);
+    }
+
+
+    console.log('container', container);
+    var mainEl = document.getElementById('main-content');
+    mainEl.appendChild(container);
   },
 
 };
@@ -151,13 +205,30 @@ var alki = {
     }
     trialArray.push('Total Cookies: ' + totalCookiesSold);
     console.log('trialArray', trialArray);
-    return [trialArray];
+    return [trialArray[0], trialArray[1], trialArray[2], trialArray[4], trialArray[5], trialArray[6], trialArray[7], trialArray[8], trialArray[9], trialArray[10], trialArray[11], trialArray[12], trialArray[13], trialArray[14], trialArray[15]];
+  },
+
+  render () {
+    var container = document.createElement('section');
+    var nameEl = document.createElement('h3');
+    nameEl.textContent = this.name;
+    container.appendChild(nameEl);
+
+    for (var i = 0; i < this.arrayFn().length; i++){
+      var listEl = document.createElement('li');
+      listEl.textContent = this.arrayFn()[i];
+      container.appendChild(listEl);
+    }
+
+
+    console.log('container', container);
+    var mainEl = document.getElementById('main-content');
+    mainEl.appendChild(container);
   },
 
 };
 
 firstAndPike.cookiesPerHourFn();
-firstAndPike.render();
 firstAndPike.arrayFn();
 seaTac.cookiesPerHourFn();
 seaTac.arrayFn();
@@ -167,3 +238,8 @@ capitolHill.cookiesPerHourFn();
 capitolHill.arrayFn();
 alki.cookiesPerHourFn();
 alki.arrayFn();
+firstAndPike.render();
+seaTac.render();
+seattleCenter.render();
+capitolHill.render();
+alki.render();
