@@ -48,7 +48,7 @@ CookieStore.prototype.render = function() {
   trEl.appendChild(thEl);
   //For loops begin
 
-  
+
   for (var i = 0; i < this.hoursOpen.length; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesPerHourArr[i];
@@ -58,7 +58,7 @@ CookieStore.prototype.render = function() {
   tdTotalEl.textContent = this.dailyTotal;
   trEl.appendChild(tdTotalEl);
   //for loops end
-  
+
   tbodyEl.appendChild(trEl);
   tdTotalEl.id = 'tblTotal';
 };
@@ -69,7 +69,7 @@ function createTable() {
   var theadEl = document.createElement('thead');
   var tbodyEl = document.createElement('tbody');
   var tfootEl = document.createElement('tfoot');
-  
+
   var tr2el = document.createElement('tr');
   for (var j = 0; j < hoursOpen.length; j++) {
     var th2el = document.createElement('th');
@@ -88,7 +88,7 @@ function createTable() {
   tbodyEl.id = 'tbl-body';
   tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
-  
+
 
 
 }
