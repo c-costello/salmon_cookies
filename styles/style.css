@@ -22,3 +22,7 @@ th {
   font-weight: bold;
   background-color: rgb(202, 202, 202);
 }
+
+#final-total {
+  background-color: red;
+}

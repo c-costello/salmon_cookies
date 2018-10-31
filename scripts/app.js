@@ -1,9 +1,7 @@
 var cookieStore = [];
 var hoursOpen = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'TOTAL'];
 var finalTotal = 0;
-var totalArr = [];
-var hourlyArr = ['',];
-var extraVar = []; 
+var hourlyArr = [];
 
 function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   this.name = name;
@@ -35,13 +33,14 @@ CookieStore.prototype.getCookeisPerHour = function () {
   this.getCustomersPerHour(this.minCustomer, this.maxCustomer);
 
   for (var i = 0; i < this.hoursOpen.length; i++) {
-    while (hourlyArr.length < this.hoursOpen.length+1) {
+    while (hourlyArr.length < this.hoursOpen.length) {
       hourlyArr.push(0);
     }
     var randomCookiesPerHour = Math.floor(this.custPerHourArr[i] * this.avgCookies);
     this.cookiesPerHourArr.push(randomCookiesPerHour);
     this.dailyTotal += randomCookiesPerHour;
-    hourlyArr[i+1] += randomCookiesPerHour;
+    hourlyArr[i] += randomCookiesPerHour;
+    finalTotal += this.dailyTotal;
     console.log(hourlyArr);
   }
 
@@ -151,7 +150,11 @@ function createFooter() {
   var trforFooter = document.createElement('tr');
   console.log('createFooterFunction is Running');
   console.log('hourlyArr.length', hourlyArr.length);
-  for (var a = 0; a < hoursOpen.length; a++){
+
+  var thforFooterHeader = document.createElement('th');
+  thforFooterHeader.textContent='Total';
+  trforFooter.appendChild(thforFooterHeader);
+  for (var a = 0; a < hoursOpen.length-2; a++){
     var tdforFooter = document.createElement('td');
     tdforFooter.textContent = hourlyArr[a];
     trforFooter.appendChild(tdforFooter);
@@ -159,5 +162,10 @@ function createFooter() {
     console.log('trforFooter', trforFooter);
     tfootEl.appendChild(trforFooter);
   }
+
+  var tdforFooterTotal = document.createElement('td');
+  tdforFooterTotal.textContent = finalTotal;
+  trforFooter.appendChild(tdforFooterTotal);
+  tdforFooterTotal.id = 'final-total';
 }
   createFooter();
