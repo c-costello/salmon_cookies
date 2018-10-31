@@ -17,9 +17,17 @@ function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
 
 CookieStore.prototype.getCustomersPerHour = function (min, max) {
   for (var i = 0; i < this.hoursOpen.length; i++) {
-    var randomCustPerHour = Math.floor(Math.random() * (max - min + 1) + min);
+    console.log('min', min);
+    console.log('max',max);
+    var randomNumber = Math.random();
+    console.log('randomNumber', randomNumber);
+    console.log('mathCheck1', randomNumber * (max - min + 1) + min);
+    console.log('mathCheck2', randomNumber * (max - min + 1 ));
+    var randomCustPerHour = Math.round(randomNumber * (max - min + 1) + min);
     this.custPerHourArr.push(randomCustPerHour);
+    console.log('randomCustPerHour',randomCustPerHour);
   }
+  console.log('custPerHourArr', this.custPerHourArr);
 
 };
 
@@ -119,7 +127,7 @@ formEl.addEventListener('submit', function(event){
 createTable();
 
 new CookieStore('First and Pike', 23, 65, 6.3);
-new CookieStore('SeaTac Airport', 3, 24, 1.2);
-new CookieStore('Seattle Center', 11, 38, 3.7);
-new CookieStore('Capitol Hill', 20, 38, 2.3);
-new CookieStore('Alki', 2, 16, 4.6);
+// new CookieStore('SeaTac Airport', 3, 24, 1.2);
+// new CookieStore('Seattle Center', 11, 38, 3.7);
+// new CookieStore('Capitol Hill', 20, 38, 2.3);
+// new CookieStore('Alki', 2, 16, 4.6);
