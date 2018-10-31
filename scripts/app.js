@@ -1,7 +1,6 @@
 var cookieStore = [];
 var hoursOpen = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'TOTAL'];
 
-
 function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   this.name = name;
   this.minCustomer = minCustomer;
@@ -42,10 +41,11 @@ CookieStore.prototype.render = function() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
 
-
+  //Names of stores
   thEl.textContent = '';
   thEl.textContent = this.name;
   trEl.appendChild(thEl);
+
   //For loops begin
 
 
@@ -54,13 +54,15 @@ CookieStore.prototype.render = function() {
     tdEl.textContent = this.cookiesPerHourArr[i];
     trEl.appendChild(tdEl);
   }
+  //for loops end
+  //daily total!
   var tdTotalEl = document.createElement('td');
   tdTotalEl.textContent = this.dailyTotal;
   trEl.appendChild(tdTotalEl);
-  //for loops end
-
-  tbodyEl.appendChild(trEl);
   tdTotalEl.id = 'tblTotal';
+
+  //append everything back in
+  tbodyEl.appendChild(trEl);
 };
 
 function createTable() {
@@ -92,6 +94,8 @@ function createTable() {
   }
   createHeader();
 }
+
+//Call your code!
 
 createTable();
 
