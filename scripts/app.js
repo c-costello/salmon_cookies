@@ -41,7 +41,7 @@ CookieStore.prototype.render = function() {
   var tbodyEl = document.getElementById('tbl-body');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
-  var theadEl = document.getElementById('tbl-head');
+
 
   thEl.textContent = '';
   thEl.textContent = this.name;
@@ -70,14 +70,6 @@ function createTable() {
   var tbodyEl = document.createElement('tbody');
   var tfootEl = document.createElement('tfoot');
 
-  var tr2el = document.createElement('tr');
-  for (var j = 0; j < hoursOpen.length; j++) {
-    var th2el = document.createElement('th');
-    th2el.textContent = hoursOpen[j];
-    tr2el.appendChild(th2el);
-    theadEl.appendChild(tr2el);
-  }
-
   mainEl.appendChild(tblEl);
   tblEl.appendChild(theadEl);
   tblEl.appendChild(tbodyEl);
@@ -89,8 +81,16 @@ function createTable() {
   tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
 
-
-
+  function createHeader(){
+    var tr2el = document.createElement('tr');
+    for (var j = 0; j < hoursOpen.length; j++) {
+      var th2el = document.createElement('th');
+      th2el.textContent = hoursOpen[j];
+      tr2el.appendChild(th2el);
+      theadEl.appendChild(tr2el);
+    }
+  }
+  createHeader();
 }
 
 createTable();
