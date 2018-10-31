@@ -95,6 +95,25 @@ function createTable() {
   createHeader();
 }
 
+//BELOW: BUTTONS and FORMS
+var formEl = document.getElementById('form-data');
+formEl.addEventListener('submit', function(event){
+  event.preventDefault(); //stop page from refreshing
+
+  console.log(event.target.sN.value);
+
+  var nameInput = event.target.sN.value;
+  var minInput = event.target.custMin.value;
+  var maxInput = event.target.custMax.value;
+  var avgInput = event.target.cookieAvg.value;
+
+  new CookieStore(nameInput, minInput, maxInput, avgInput);
+});
+
+
+
+
+
 //Call your code!
 
 createTable();
