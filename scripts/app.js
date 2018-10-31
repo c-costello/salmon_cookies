@@ -154,7 +154,7 @@ function createFooter() {
   var thforFooterHeader = document.createElement('th');
   thforFooterHeader.textContent='Total';
   trforFooter.appendChild(thforFooterHeader);
-  for (var a = 0; a < hoursOpen.length-2; a++){
+  for (var a = 0; a < hourlyArr.length; a++){
     var tdforFooter = document.createElement('td');
     tdforFooter.textContent = hourlyArr[a];
     trforFooter.appendChild(tdforFooter);
