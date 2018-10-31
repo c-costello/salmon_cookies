@@ -1,6 +1,8 @@
 var cookieStore = [];
 var hoursOpen = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'TOTAL'];
-
+var finalTotal = [];
+var finalTotalArrayMiddleMan;
+var extraVar2;
 function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   this.name = name;
   this.minCustomer = minCustomer;
@@ -17,17 +19,17 @@ function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
 
 CookieStore.prototype.getCustomersPerHour = function (min, max) {
   for (var i = 0; i < this.hoursOpen.length; i++) {
-    console.log('min', min);
-    console.log('max',max);
-    var randomNumber = Math.random();
-    console.log('randomNumber', randomNumber);
-    console.log('mathCheck1', randomNumber * (max - min + 1) + min);
-    console.log('mathCheck2', randomNumber * (max - min + 1 ));
-    var randomCustPerHour = Math.round(randomNumber * (max - min + 1) + min);
-    this.custPerHourArr.push(randomCustPerHour);
+    // console.log('min', min);
+    // console.log('max',max);
+    // var randomNumber = Math.random();
+    // console.log('randomNumber', randomNumber);
+    // console.log('mathCheck1', randomNumber * (max - min + 1) + min);
+    // console.log('mathCheck2', randomNumber * (max - min + 1 ));
+    var randomCustPerHour = Math.floor(Math.random() * (max - min + 1) + min);
     console.log('randomCustPerHour',randomCustPerHour);
+    this.custPerHourArr.push(randomCustPerHour);
   }
-  console.log('custPerHourArr', this.custPerHourArr);
+  // console.log('custPerHourArr', this.custPerHourArr);
 
 };
 
@@ -41,6 +43,10 @@ CookieStore.prototype.getCookeisPerHour = function () {
     this.dailyTotal += randomCookiesPerHour;
   }
   console.log(this.cookiesPerHourArr);
+  finalTotalArrayMiddleMan = this.cookiesPerHourArr;
+  console.log('finalTotalArrayMiddleMan', finalTotalArrayMiddleMan);
+  finalTotal.push(finalTotalArrayMiddleMan);
+
 };
 
 CookieStore.prototype.render = function() {
@@ -91,6 +97,7 @@ function createTable() {
   tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
 
+  
   function createHeader(){
     var tr2el = document.createElement('tr');
     for (var j = 0; j < hoursOpen.length; j++) {
@@ -100,31 +107,41 @@ function createTable() {
       theadEl.appendChild(tr2el);
     }
   }
+
   createHeader();
+  // createFooter();
 }
+
+function createFooter(){
+  for (var a = 0; a < hoursOpen; a++){
+    for (var b = 0; b < cookieStore.length; b++) {
+        
+    }
+  }
+}
+
+
 
 //BELOW: BUTTONS and FORMS
 var formEl = document.getElementById('form-data');
 formEl.addEventListener('submit', function(event){
   event.preventDefault(); //stop page from refreshing
-
+  
   console.log(event.target.sN.value);
-
+  
   var nameInput = event.target.sN.value;
-  var minInput = event.target.custMin.value;
-  var maxInput = event.target.custMax.value;
-  var avgInput = event.target.cookieAvg.value;
-
+  var maxInput = parseInt(event.target.custMax.value);
+  var minInput = parseInt(event.target.custMin.value);
+  var avgInput = parseInt(event.target.cookieAvg.value);
+  
   new CookieStore(nameInput, minInput, maxInput, avgInput);
 });
-
-
-
 
 
 //Call your code!
 
 createTable();
+
 
 new CookieStore('First and Pike', 23, 65, 6.3);
 // new CookieStore('SeaTac Airport', 3, 24, 1.2);
