@@ -43,9 +43,9 @@ CookieStore.prototype.getCookeisPerHour = function () {
     this.cookiesPerHourArr.push(randomCookiesPerHour);
     this.dailyTotal += randomCookiesPerHour;
     hourlyArr[i] += randomCookiesPerHour;
-    finalTotal += this.dailyTotal;
     console.log(hourlyArr);
   }
+  finalTotal += this.dailyTotal;
   
   
 };
