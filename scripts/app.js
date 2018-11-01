@@ -2,6 +2,7 @@ var cookieStore = [];
 var hoursOpen = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'TOTAL'];
 var finalTotal = 0;
 var hourlyArr = [];
+var footerHasRun = false;
 
 
 
@@ -86,17 +87,17 @@ function createTable() {
   var tblEl = document.createElement('table');
   var theadEl = document.createElement('thead');
   var tbodyEl = document.createElement('tbody');
-  var tfootEl = document.createElement('tfoot');
+  // var tfootEl = document.createElement('tfoot');
   
   mainEl.appendChild(tblEl);
   tblEl.appendChild(theadEl);
   tblEl.appendChild(tbodyEl);
-  tblEl.appendChild(tfootEl);
+  // tblEl.appendChild(tfootEl);
   
   tblEl.id = 'cookies-table';
   theadEl.id = 'tbl-head';
   tbodyEl.id = 'tbl-body';
-  tfootEl.id = 'tbl-foot';
+  // tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
   
   
@@ -119,6 +120,38 @@ function createTable() {
 
 
 
+function createFooter() {
+  
+  var tfootElCheck = document.getElementById('tbl-foot');
+  if (tfootElCheck){
+    tfootElCheck.remove();
+  }
+  var tblEl = document.getElementById('cookies-table');
+  var tfootEl = document.createElement('tfoot');
+  var trforFooter = document.createElement('tr');
+  
+  tfootEl.id = 'tbl-foot';
+  
+  var thforFooterHeader = document.createElement('th');
+  thforFooterHeader.textContent='Total';
+  trforFooter.appendChild(thforFooterHeader);
+  for (var a = 0; a < hourlyArr.length; a++){
+    var tdforFooter = document.createElement('td');
+    tdforFooter.textContent = hourlyArr[a];
+    trforFooter.appendChild(tdforFooter);
+    
+  }
+  tfootEl.appendChild(trforFooter);
+  
+  var tdforFooterTotal = document.createElement('td');
+  tdforFooterTotal.textContent = finalTotal;
+  trforFooter.appendChild(tdforFooterTotal);
+  tdforFooterTotal.id = 'final-total';
+
+  tfootEl.appendChild(trforFooter);
+  tblEl.appendChild(tfootEl);
+  
+}
 //BELOW: BUTTONS and FORMS
 var formEl = document.getElementById('form-data');
 formEl.addEventListener('submit', function(event){
@@ -132,13 +165,14 @@ formEl.addEventListener('submit', function(event){
   var avgInput = parseInt(event.target.cookieAvg.value);
   
   new CookieStore(nameInput, minInput, maxInput, avgInput);
-  
+  createFooter();
 });
 
 
 //Call your code!
-
-createTable();
+(function run() {
+  createTable();
+})();
 
 
 new CookieStore('First and Pike', 23, 65, 6.3);
@@ -149,26 +183,5 @@ new CookieStore('Alki', 2, 16, 4.6);
 
 
 //Footer?
-function createFooter() {
-  var tfootEl = document.getElementById('tbl-foot');
-  var trforFooter = document.createElement('tr');
-  
-  
-  var thforFooterHeader = document.createElement('th');
-  thforFooterHeader.textContent='Total';
-  trforFooter.appendChild(thforFooterHeader);
-  for (var a = 0; a < hourlyArr.length; a++){
-    var tdforFooter = document.createElement('td');
-    tdforFooter.textContent = hourlyArr[a];
-    trforFooter.appendChild(tdforFooter);
-    
-    tfootEl.appendChild(trforFooter);
-  }
-  
-  var tdforFooterTotal = document.createElement('td');
-  tdforFooterTotal.textContent = finalTotal;
-  trforFooter.appendChild(tdforFooterTotal);
-  tdforFooterTotal.id = 'final-total';
-}
 
 createFooter();
