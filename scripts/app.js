@@ -18,18 +18,17 @@ function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   
   cookieStore.push(this);
   this.render();
-  createFooter();
 }
 
 CookieStore.prototype.getCustomersPerHour = function (min, max) {
   for (var i = 0; i < this.hoursOpen.length; i++) {
     
     var randomCustPerHour = Math.floor(Math.random() * (max - min + 1) + min);
-
+    
     this.custPerHourArr.push(randomCustPerHour);
   }
-
-
+  
+  
 };
 
 
@@ -88,18 +87,18 @@ function createTable() {
   var theadEl = document.createElement('thead');
   var tbodyEl = document.createElement('tbody');
   var tfootEl = document.createElement('tfoot');
-
+  
   mainEl.appendChild(tblEl);
   tblEl.appendChild(theadEl);
   tblEl.appendChild(tbodyEl);
   tblEl.appendChild(tfootEl);
-
+  
   tblEl.id = 'cookies-table';
   theadEl.id = 'tbl-head';
   tbodyEl.id = 'tbl-body';
   tfootEl.id = 'tbl-foot';
   tblEl.className = 'tbl';
-
+  
   
   function createHeader(){
     var tr2el = document.createElement('tr');
@@ -110,9 +109,9 @@ function createTable() {
       theadEl.appendChild(tr2el);
     }
   }
-
-
-
+  
+  
+  
   createHeader();
   // createFooter();
 }
@@ -123,7 +122,7 @@ function createTable() {
 //BELOW: BUTTONS and FORMS
 var formEl = document.getElementById('form-data');
 formEl.addEventListener('submit', function(event){
- event.preventDefault(); //stop page from refreshing
+  event.preventDefault(); //stop page from refreshing
   
   console.log(event.target.sN.value);
   
@@ -153,8 +152,8 @@ new CookieStore('Alki', 2, 16, 4.6);
 function createFooter() {
   var tfootEl = document.getElementById('tbl-foot');
   var trforFooter = document.createElement('tr');
-
-
+  
+  
   var thforFooterHeader = document.createElement('th');
   thforFooterHeader.textContent='Total';
   trforFooter.appendChild(thforFooterHeader);
@@ -162,13 +161,14 @@ function createFooter() {
     var tdforFooter = document.createElement('td');
     tdforFooter.textContent = hourlyArr[a];
     trforFooter.appendChild(tdforFooter);
-
+    
     tfootEl.appendChild(trforFooter);
   }
-
+  
   var tdforFooterTotal = document.createElement('td');
   tdforFooterTotal.textContent = finalTotal;
   trforFooter.appendChild(tdforFooterTotal);
   tdforFooterTotal.id = 'final-total';
 }
 
+createFooter();
