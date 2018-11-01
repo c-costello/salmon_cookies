@@ -3,6 +3,9 @@ var hoursOpen = ['', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', 
 var finalTotal = 0;
 var hourlyArr = [];
 
+
+
+
 function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   this.name = name;
   this.minCustomer = minCustomer;
@@ -12,9 +15,10 @@ function CookieStore(name, minCustomer, maxCustomer, avgCookies) {
   this.custPerHourArr = [];
   this.cookiesPerHourArr = [];
   this.dailyTotal = 0;
-
+  
   cookieStore.push(this);
   this.render();
+  createFooter();
 }
 
 CookieStore.prototype.getCustomersPerHour = function (min, max) {
@@ -31,7 +35,7 @@ CookieStore.prototype.getCustomersPerHour = function (min, max) {
 
 CookieStore.prototype.getCookeisPerHour = function () {
   this.getCustomersPerHour(this.minCustomer, this.maxCustomer);
-
+  
   for (var i = 0; i < this.hoursOpen.length; i++) {
     while (hourlyArr.length < this.hoursOpen.length) {
       hourlyArr.push(0);
@@ -43,8 +47,8 @@ CookieStore.prototype.getCookeisPerHour = function () {
     finalTotal += this.dailyTotal;
     console.log(hourlyArr);
   }
-
-
+  
+  
 };
 
 CookieStore.prototype.render = function() {
@@ -75,7 +79,7 @@ CookieStore.prototype.render = function() {
   
   //append everything back in
   tbodyEl.appendChild(trEl);
-
+  
 };
 
 function createTable() {
@@ -119,7 +123,7 @@ function createTable() {
 //BELOW: BUTTONS and FORMS
 var formEl = document.getElementById('form-data');
 formEl.addEventListener('submit', function(event){
-  event.preventDefault(); //stop page from refreshing
+ event.preventDefault(); //stop page from refreshing
   
   console.log(event.target.sN.value);
   
@@ -129,6 +133,7 @@ formEl.addEventListener('submit', function(event){
   var avgInput = parseInt(event.target.cookieAvg.value);
   
   new CookieStore(nameInput, minInput, maxInput, avgInput);
+  
 });
 
 
@@ -148,8 +153,7 @@ new CookieStore('Alki', 2, 16, 4.6);
 function createFooter() {
   var tfootEl = document.getElementById('tbl-foot');
   var trforFooter = document.createElement('tr');
-  console.log('createFooterFunction is Running');
-  console.log('hourlyArr.length', hourlyArr.length);
+
 
   var thforFooterHeader = document.createElement('th');
   thforFooterHeader.textContent='Total';
@@ -158,8 +162,7 @@ function createFooter() {
     var tdforFooter = document.createElement('td');
     tdforFooter.textContent = hourlyArr[a];
     trforFooter.appendChild(tdforFooter);
-    console.log('tdforFooter', tdforFooter);
-    console.log('trforFooter', trforFooter);
+
     tfootEl.appendChild(trforFooter);
   }
 
@@ -168,4 +171,4 @@ function createFooter() {
   trforFooter.appendChild(tdforFooterTotal);
   tdforFooterTotal.id = 'final-total';
 }
-  createFooter();
+
