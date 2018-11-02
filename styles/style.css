@@ -1,29 +1,143 @@
-
-table{
+body {
   font-family: sans-serif;
+  background: rgb(112, 112, 129);
+}
+header {
+  background-color: rgb(56, 70, 78);
+  width: 100%;
+  height: 300px;
+}
+h1 {
+  font-size: 48px;
+  text-align: center;
+  background-color: rgb(56, 70, 78);
+  width: 100%;
+  
 }
 
-td {
-  padding-top: 8px;
-  padding-right: 4px;
-  padding-bottom: 0px;
-  margin: 0px;
-  border: 0px;
+h2{
+  font-size: 36px;
+  text-align: center;
+  background-color: rgb(56, 70, 78);
+  
 }
-
-th {
-  text-align: right;
-  padding-top: 4px;
-  padding-bottom: 0px;
-  padding-right: 2px;
+h3 {
+  font-size: 24px;
+  text-align: center;
 
 }
-
-#tblTotal {
-  font-weight: bold;
-  background-color: rgb(202, 202, 202);
+nav {
+  width: 150px;
+  height: 280px;
+  position: absolute;
+  left: 0px;
+  background-color: rgb(55, 73, 55);
+  font-size: 16px;
+  padding-top: 20px;
+  padding-left: 10px;
+  
+}
+li {
+  padding-top: 20px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+header section {
+  position: absolute;
+  left:180px;
+  padding-left: 100px;
+  padding-top: 20px;
+}
+header section img {
+  display:inline-block;
+  margin: 0 auto;
+  width: 500px;
+  background-color: rgb(56, 70, 78);
 }
 
-#final-total {
-  background-color: red;
+main {
+  position: relative;
+  margin-bottom: 100px;
+
+}
+
+ #aboutus {
+  background-color: rgba(255, 255, 255, 0.575);
+  width: 900px;
+  height: 350px;
+  position: relative;
+  left: 30px;
+  margin-top: 20px;
+
+}
+#aboutus:first-child{
+  position:relative;
+}
+
+#img1 {
+  top: 20px;
+  left: 10px;
+  height: 200px;
+  position: absolute;
+}
+
+#img2 {
+  top: 200px;
+  left: 10px;
+  width: 200px;
+  position:absolute;
+} 
+
+#ourstory{
+  width: 600px;
+  height: 300px;
+  position: absolute;
+  left: 220px;
+  padding: 10px;
+}
+
+#ourstory p {
+  overflow: scroll;
+  height: 290px;
+}
+
+#merch {
+  position: absolute;
+  left: 30px;
+  top: 400px;
+  background-color: rgba(255, 255, 255, 0.52);
+  padding: 15px;
+  height: 500px;
+  overflow: scroll;
+  width: 400px;
+}
+
+#merch img {
+  margin-top: 40px;
+}
+
+
+#events {
+  position: absolute;
+  right: 330px;
+  top: 400px;
+  background-color: rgba(255, 255, 255, 0.52);
+  padding: 15px;
+  height: 500px;
+  overflow: scroll;
+  width: 400px;
+}
+
+#events img {
+  margin-top: 40px;
+}
+
+footer {
+  position: fixed;
+  height: 20px;
+  width: 100%;
+  bottom: 0px;
+  background-color: rgb(56, 70, 78);
 }
