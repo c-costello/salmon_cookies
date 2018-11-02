@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles/style.css"
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/tablestyle.css">
+  
   </head>
   <body>
-    <header></header>
+    <header>
+        <section>
+            <img src="images/salmon.png">
+            <h1>Salmon Cookies</h1>
+            <h2> Sales Page </h2>
+          </section>
+          <nav>
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="sales.html">SALES</a></li>
+              <li><a href="">PLACEHOLD LINK</a></li>
+              <li><a href="">PLACEHOLD LINK</a></li>
+              <li><a href="">PLACEHOLD LINK</a></li>
+              <li><a href="">PLACEHOLD LINK</a></li>
+          </ul>
+        </nav>
+    </header>
     <main id=main-content>
       <form id=form-data>
-        Store Name: <input name="sN" type="text">
-        Minimum Customers<input name="custMin" type="number">
-        Maximum Customers <input name="custMax" type="number">
-        Average Cookies Per Customer<input name="cookieAvg" type="number">
-        <button type="submit">Submit</button>
+        <p>Store Name: <input name="sN" type="text"></p>
+        <p>Minimum Customers:<input name="custMin" type="number"></p>
+        <p>Maximum Customers: <input name="custMax" type="number"></p>
+        <p>Average Cookies Per Customer:<input name="cookieAvg" type="number"></p>
+        <p><button type="submit">Submit</button></p>
       </form>
       <section id="results"></section>
     </main>
